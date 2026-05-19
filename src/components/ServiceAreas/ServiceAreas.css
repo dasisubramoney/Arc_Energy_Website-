@@ -1,0 +1,200 @@
+﻿.areas {
+  padding: var(--section-padding) 0;
+  background: var(--bg-secondary);
+  position: relative;
+  background-image: url('/images/van-mountains.jpg');
+  background-size: cover;
+  background-position: center 45%;
+  background-attachment: fixed;
+}
+
+/* Dark overlay */
+.areas::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 17, 23, 0.9);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.areas .container { position: relative; z-index: 1; }
+
+.areas::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.areas__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+  margin-bottom: 56px;
+}
+
+/* ── Content ── */
+.areas__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.areas__sub {
+  margin: 0;
+}
+
+/* ── Area list ── */
+.areas__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+}
+
+.areas__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.areas__item:hover {
+  color: var(--text-primary);
+}
+
+.areas__item-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(0, 212, 255, 0.5);
+}
+
+/* ── Map ── */
+.areas__map-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.areas__map {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(13, 21, 38, 0.6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: relative;
+  box-shadow: var(--glow-blue);
+}
+
+.areas__map svg {
+  width: 100%;
+  height: auto;
+}
+
+.city-pulse {
+  animation: cityPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes cityPulse {
+  0%, 100% { r: 8; opacity: 0.15; }
+  50% { r: 12; opacity: 0.05; }
+}
+
+.areas__map-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.areas__map-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+  animation: mapDotBlink 2s ease-in-out infinite;
+}
+
+@keyframes mapDotBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ── Bottom banner ── */
+.areas__banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(0, 102, 255, 0.08);
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  border-radius: var(--radius);
+  padding: 20px 28px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.areas__banner strong {
+  color: var(--text-primary);
+}
+
+.areas__banner-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.areas__banner-link {
+  color: var(--accent-cyan);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: var(--transition);
+}
+
+.areas__banner-link:hover {
+  color: var(--accent-blue);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .areas__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .areas__map-wrap {
+    order: -1;
+  }
+
+  .areas__map {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .areas__list {
+    grid-template-columns: 1fr;
+  }
+
+  .areas__banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+}

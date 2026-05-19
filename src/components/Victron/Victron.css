@@ -1,0 +1,215 @@
+﻿.victron {
+  padding: var(--section-padding) 0;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Diagonal stripe texture ── */
+.victron__stripe-bg {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(0, 102, 255, 0.02) 0px,
+    rgba(0, 102, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 24px
+  );
+  pointer-events: none;
+}
+
+.victron__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* ── Content ── */
+.victron__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.victron__body {
+  font-size: 0.975rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ── Products list ── */
+.victron__products {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.victron__product-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.victron__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.victron__cta {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+/* ── Right column: photo + diagram stacked ── */
+.victron__diagram-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+/* ── Equipment photo ── */
+.victron__photo-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--glow-blue);
+}
+
+.victron__photo {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(20%) brightness(0.9);
+  transition: filter 0.4s ease, transform 0.5s ease;
+}
+
+.victron__photo-wrap:hover .victron__photo {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.03);
+}
+
+.victron__photo-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: rgba(9, 14, 26, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-cyan);
+  letter-spacing: 0.06em;
+}
+
+.victron__photo-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+  animation: photoDotBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes photoDotBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+.victron__diagram {
+  width: 100%;
+  max-width: 380px;
+  background: rgba(13, 21, 38, 0.7);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--glow-blue), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+}
+
+.victron__diagram svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Flow line animation */
+.victron-flow {
+  stroke-dasharray: 6 4;
+  animation: flowAnim 1.8s linear infinite;
+}
+
+@keyframes flowAnim {
+  to { stroke-dashoffset: -20; }
+}
+
+/* Pulsing node dots */
+.pulse-dot {
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; r: 5; }
+  50% { opacity: 0.5; r: 7; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .victron__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .victron__diagram-wrap {
+    order: -1;
+  }
+
+  .victron__diagram {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .victron__cta {
+    align-self: center;
+  }
+
+  .victron__content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .victron__product-item {
+    justify-content: flex-start;
+    max-width: 360px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .victron__diagram {
+    max-width: 100%;
+    padding: 16px;
+  }
+}
