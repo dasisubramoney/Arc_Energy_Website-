@@ -1,0 +1,249 @@
+/* ── Animated flow lines ── */
+@keyframes flowDash {
+  to { stroke-dashoffset: -20; }
+}
+
+@keyframes shimmerBadge {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ══════════════════════════════════════
+   WRAPPER
+══════════════════════════════════════ */
+.vd {
+  background: rgba(8, 13, 26, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+}
+
+/* ── Top bar ── */
+.vd__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(8, 14, 28, 0.95);
+}
+
+.vd__topbar-title {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: #4A5568;
+  text-transform: uppercase;
+}
+
+.vd__interactive-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background: rgba(100, 160, 255, 0.1);
+  border: 1px solid rgba(100, 160, 255, 0.3);
+  border-radius: 100px;
+  font-size: 0.68rem;
+  color: #6AA0FF;
+  letter-spacing: 0.05em;
+}
+
+/* ── Filter tabs ── */
+.vd__filters {
+  display: flex;
+  gap: 6px;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(10, 16, 30, 0.9);
+  flex-wrap: wrap;
+}
+
+.vd__filter {
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #4A5568;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vd__filter:hover {
+  color: #94A3B8;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vd__filter--active {
+  color: #E2E8F0;
+  background: rgba(100, 160, 255, 0.1);
+  border-color: rgba(100, 160, 255, 0.4);
+}
+
+/* ── SVG canvas ── */
+.vd__canvas-wrap {
+  padding: 4px 8px 0;
+  background: rgba(8, 13, 24, 0.97);
+}
+
+.vd__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Animated flow lines ── */
+.vd__animated-flow {
+  stroke-dasharray: 6 4;
+  will-change: stroke-dashoffset;
+  animation: flowDash 2s linear infinite;
+}
+
+/* ── Filter visibility system ── */
+/* All groups start fully visible */
+.vd__flow-solar,
+.vd__flow-dc,
+.vd__flow-ac,
+.vd__flow-grid {
+  transition: opacity 0.35s ease;
+}
+
+/* Solar filter — dim everything else */
+.vd--solar .vd__flow-dc,
+.vd--solar .vd__flow-ac,
+.vd--solar .vd__flow-grid { opacity: 0.06; }
+
+/* DC filter */
+.vd--dc .vd__flow-solar,
+.vd--dc .vd__flow-ac,
+.vd--dc .vd__flow-grid { opacity: 0.06; }
+
+/* AC filter */
+.vd--ac .vd__flow-solar,
+.vd--ac .vd__flow-dc,
+.vd--ac .vd__flow-grid { opacity: 0.06; }
+
+/* Grid filter */
+.vd--grid .vd__flow-solar,
+.vd--grid .vd__flow-dc,
+.vd--grid .vd__flow-ac { opacity: 0.06; }
+
+/* ── Legend ── */
+.vd__legend {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(10, 15, 28, 0.95);
+}
+
+.vd__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: #4A5568;
+  letter-spacing: 0.03em;
+}
+
+/* ── Spec bar ── */
+.vd__specbar {
+  padding: 7px 16px;
+  font-size: 0.68rem;
+  color: #2D3748;
+  letter-spacing: 0.04em;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  text-align: center;
+  background: rgba(8, 12, 22, 0.97);
+}
+
+/* ── Spec cards ── */
+.vd__specs {
+  border-top: 1px solid rgba(255, 209, 102, 0.15);
+  padding: 14px 16px;
+  background: rgba(14, 20, 38, 0.97);
+}
+
+.vd__spec-heading {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #FFD166;
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+
+.vd__spec-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.vd__spec-card {
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vd__spec-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: #4A5568;
+  text-transform: uppercase;
+}
+
+.vd__spec-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #E2E8F0;
+  letter-spacing: -0.01em;
+}
+
+/* ── Compact mode ── */
+.vd--compact .vd__filters {
+  padding: 6px 10px;
+  gap: 4px;
+}
+
+.vd--compact .vd__filter {
+  padding: 4px 9px;
+  font-size: 0.65rem;
+}
+
+.vd--compact .vd__canvas-wrap {
+  padding: 2px 4px 0;
+}
+
+.vd--compact .vd__legend {
+  padding: 7px 12px;
+  gap: 12px;
+}
+
+.vd--compact .vd__legend-item {
+  font-size: 0.65rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .vd__spec-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vd__filters {
+    gap: 4px;
+  }
+
+  .vd__filter {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+  }
+}

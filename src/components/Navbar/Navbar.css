@@ -56,31 +56,21 @@
   flex-shrink: 0;
 }
 
-.navbar__logo-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  background: rgba(0, 102, 255, 0.12);
-  border: 1px solid rgba(0, 102, 255, 0.3);
-  border-radius: 8px;
-  transition: var(--transition);
+.navbar__logo-img {
+  height: 56px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  /* keep logos readable on dark bg — mix if needed */
+  filter: brightness(1.05);
+  transition: filter 0.3s ease, transform 0.3s ease;
   will-change: filter;
   animation: logoPulse 3s ease-in-out infinite;
 }
 
-.navbar__logo:hover .navbar__logo-icon {
-  background: rgba(0, 102, 255, 0.2);
-  border-color: rgba(0, 212, 255, 0.4);
-}
-
-.navbar__logo-text {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
+.navbar__logo:hover .navbar__logo-img {
+  filter: brightness(1.15) drop-shadow(0 0 8px rgba(0, 212, 255, 0.4));
+  transform: scale(1.03);
 }
 
 /* ── Desktop links ── */

@@ -42,10 +42,11 @@ export default function Navbar() {
           aria-label={`${company.name} home`}
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
         >
-          <span className="navbar__logo-icon" aria-hidden="true">
-            <LightningIcon />
-          </span>
-          <span className="navbar__logo-text">{company.logo.text}</span>
+          <img
+            src="/images/logo.jpg"
+            alt={company.name}
+            className="navbar__logo-img"
+          />
         </a>
 
         <ul className="navbar__links" role="list">

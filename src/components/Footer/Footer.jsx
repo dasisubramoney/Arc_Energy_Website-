@@ -22,10 +22,11 @@ export default function Footer() {
               aria-label={`${company.name} homepage`}
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
             >
-              <span className="footer__logo-icon" aria-hidden="true">
-                <LightningIcon />
-              </span>
-              <span className="footer__logo-text">{company.logo.text}</span>
+              <img
+                src="/images/logo.jpg"
+                alt={company.name}
+                className="footer__logo-img"
+              />
             </a>
             <p className="footer__tagline">{company.subTagline}</p>
             <div className="footer__socials" aria-label="Social media links">
