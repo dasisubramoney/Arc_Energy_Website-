@@ -37,13 +37,12 @@ export default function Portfolio() {
     <section className="portfolio" id="portfolio" aria-labelledby="portfolio-heading">
       <div className="container">
         <div ref={ref} className={`portfolio__header animate ${isInView ? 'visible' : ''}`}>
-          <span className="section-badge"><GridIcon /> Our Work</span>
+          <span className="section-badge"><GridIcon /> Scope of Work</span>
           <h2 id="portfolio-heading" className="section-heading">
-            Recent <span className="gradient-text">Projects</span>
+            Projects <span className="gradient-text">Possible</span>
           </h2>
           <p className="section-subheading portfolio__subheading">
-            From off-grid farmhouses to large commercial installations — a selection of our
-            recent work across South Africa.
+            From off-grid farmhouses to large commercial installations — see how we've helped clients across industries harness the power of solar energy.
           </p>
         </div>
 

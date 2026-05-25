@@ -121,7 +121,7 @@ export const company = {
       id: 2,
       title: "Commercial Office Complex",
       category: "commercial",
-      description: "100kVA Quattro installation with generator integration for a 5-storey office building.",
+      description: "100kVA Quattro installation with generator integration for a office building.",
       image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
     },
     {
@@ -136,7 +136,7 @@ export const company = {
       id: 4,
       title: "Remote Game Lodge",
       category: "off-grid",
-      description: "Full off-grid Victron system powering a luxury game lodge in Limpopo.",
+      description: "Full off-grid Victron system powering a luxury game lodge.",
       image: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=800&q=80",
     },
     {
@@ -159,32 +159,32 @@ export const company = {
 
   testimonials: [
     {
-      name: "John M.",
+      name: "Emmaunel K.",
       type: "Residential Client, Johannesburg",
       text: "Arc Energy installed our entire Victron off-grid system. The remote monitoring has been a game changer — I can check our battery state from anywhere in the world.",
       stars: 5,
     },
     {
-      name: "Sarah K.",
+      name: "Celeb T.",
       type: "Commercial Client, Cape Town",
       text: "They diagnosed and fixed a fault in our 80kVA system remotely within an hour. Saved us from a full day of downtime. Absolutely phenomenal service.",
       stars: 5,
     },
     {
-      name: "Rikus V.",
+      name: "Divashen S.",
       type: "Off-Grid Client, Limpopo",
       text: "Our game lodge has been 100% off-grid for two years thanks to Arc Energy. The system has been flawless. They respond immediately whenever I have a question.",
       stars: 5,
     },
     {
-      name: "Priya N.",
-      type: "Residential Client, Pretoria",
+      name: "Sashin G.",
+      type: "Residential Client, Johannesburg",
       text: "From design to installation to ongoing monitoring — Arc Energy was professional every step of the way. Our Victron system has survived every load-shedding stage without a flicker.",
       stars: 5,
     },
     {
-      name: "Mike D.",
-      type: "Industrial Client, Durban",
+      name: "Seshni N.",
+      type: "Residential Client, Johannesburg",
       text: "We needed a mission-critical backup system for our factory. Arc Energy delivered on time and on budget, with zero compromise on quality. Highly recommended.",
       stars: 5,
     },
