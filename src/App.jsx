@@ -1,4 +1,6 @@
 import { Suspense, lazy } from 'react'
+import { company } from './config/company'
+import Maintenance from './components/Maintenance/Maintenance'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
 import Services from './components/Services/Services'
@@ -29,6 +31,8 @@ function SectionFallback() {
 }
 
 export default function App() {
+  if (company.maintenance) return <Maintenance />
+
   return (
     <>
       <a href="#main-content" className="skip-link">

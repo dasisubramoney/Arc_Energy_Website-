@@ -1,4 +1,6 @@
 export const company = {
+  maintenance: true, // Set to true to show the maintenance page instead of the site
+
   name: "Arc Energy",
   tagline: "Power. Precision. Arc Energy.",
   subTagline:
